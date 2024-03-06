@@ -11,7 +11,10 @@ class CatController extends Controller
      */
     public function index()
     {
-        //
+        // 確認edit路徑使用
+        $url = route('cats.edit', ['cat' => 1]);
+        // dd($url);
+
         return view('cat.index');
         // $data = view('cat.index');
         // $data = route('cats.index');
@@ -54,6 +57,7 @@ class CatController extends Controller
     public function edit(string $id)
     {
         //
+        dd($id);
     }
 
     /**
