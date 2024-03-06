@@ -13,6 +13,9 @@ class CatController extends Controller
     {
         //
         return view('cat.index');
+        // $data = view('cat.index');
+        // $data = route('cats.index');
+        // dd($data);
     }
 
     /**
@@ -21,6 +24,8 @@ class CatController extends Controller
     public function create()
     {
         //
+        // $url = route('cats.store');
+        // dd($url);
         return view('cat.create');
     }
 
@@ -30,6 +35,9 @@ class CatController extends Controller
     public function store(Request $request)
     {
         //
+        $input = $request->except('_token');
+        dd($input);
+        dd('hello cat store');
     }
 
     /**

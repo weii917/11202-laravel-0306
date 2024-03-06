@@ -10,10 +10,11 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- <link rel="stylesheet" href="http://localhost/css/style.css"> --}}
+    {{-- <link rel="stylesheet" href="{{asset('css/style.css')}}"> --}}
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <ul class="navbar-nav">
@@ -27,53 +28,38 @@
         </div>
     </nav>
 
-    <div class="container mt-3">
-        <h2>Cat Create</h2>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>operate</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Amy</td>
-                    <td>
-                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
-                        <a href="http://">Del</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Amy</td>
-                    <td>
-                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
-                        <a href="http://">Del</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Amy</td>
-                    <td>
-                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
-                        <a href="http://">Del</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Amy</td>
-                    <td>
-                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
-                        <a href="http://">Del</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <form action="{{ route('cats.store') }}" method="post">
+        {{-- <form action="http://localhost/cats" method="post"> --}}
+        @csrf
+        <div class="container mt-3">
+            <h2>Cat Create</h2>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <div class="row">
+                <div class="col ">name</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="name" id="" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ">mobile</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="mobile" id="" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submitAA">Button</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
