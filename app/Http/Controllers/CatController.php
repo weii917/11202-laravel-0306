@@ -18,8 +18,8 @@ class CatController extends Controller
         $url = route('cats.edit', ['cat' => 1]);
         // dd($url);
         //撈出的資料存$data['']，return view 將此data帶進去
-        $data['cats'] = DB::select('select * from cats');
-        $data['test'] = '123';
+        $data = DB::select('SELECT * FROM cats');
+        // $data['test'] = '123';
 
         // 新增進資料庫 insert
         // DB::table('cats')->insert([

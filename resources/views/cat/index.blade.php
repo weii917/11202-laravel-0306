@@ -29,8 +29,8 @@
         </div>
     </nav>
     @php
-        $test = $data['test'];
-        $data = $data['cats'];
+        // $test = $data['test'];
+        // $data = $data['cats'];
         // dd($test);
         // dd($cats);
     @endphp
