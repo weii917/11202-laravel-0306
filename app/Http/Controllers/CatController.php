@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+// 新增資料進資料時要用
 use Illuminate\Support\Facades\DB;
-
+// Eloquent 建modal用
+use App\Models\Cat;
 
 class CatController extends Controller
 {
@@ -14,20 +15,24 @@ class CatController extends Controller
      */
     public function index()
     {
-        // 確認edit路徑使用
+        // 20240307 2.用modal的給條件
+        $data = Cat::where('id', '>', 2)->orderByDesc('id')->get();
+        // 確認edit路徑使用   
         $url = route('cats.edit', ['cat' => 1]);
         // dd($url);
-        //撈出的資料存$data['']，return view 將此data帶進去
-        $data = DB::select('SELECT * FROM cats');
-        // $data['test'] = '123';
+        // 20240307 1.DB 新增資料撈資料庫資料
 
+        //撈出的資料存$data['']，return view 將此data帶進去
+        // $data = DB::select('SELECT * FROM cats');
+        // $data['test'] = '123';
         // 新增進資料庫 insert
         // DB::table('cats')->insert([
         //     'name' => 'amy',
         //     'mobile' => '091134',
         //     'address' => '1'
-        // ]);
+        // 20240307 1.DB 新增資料撈資料庫資料 end
         return view('cat.index', ['data' => $data]);
+        // ]);
         // $data = view('cat.index');
         // $data = route('cats.index');
         // dd($data);
