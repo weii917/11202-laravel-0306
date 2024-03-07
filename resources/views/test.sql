@@ -1,0 +1,12 @@
+CREATE TABLE `cat` (`id` INT(10) NOT NULL COMMENT '姓名' , 
+`name` VARCHAR(100) NOT NULL COMMENT '數量' , 
+`num` INT(10) NOT NULL COMMENT '日期' , 
+`date` DATE NOT NULL 
+) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+
+CREATE TABLE `dog` (`id` INT(10) NOT NULL COMMENT '姓名' , 
+`name` VARCHAR(100) NOT NULL COMMENT '數量' , 
+`num` INT(10) NOT NULL COMMENT '日期' , 
+`date` DATE NOT NULL 
+) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
