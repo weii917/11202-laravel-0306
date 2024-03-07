@@ -28,7 +28,12 @@
             </ul>
         </div>
     </nav>
-
+    @php
+        $test = $data['test'];
+        $data = $data['cats'];
+        // dd($test);
+        // dd($cats);
+    @endphp
     <div class="container mt-3">
         <h2>Cat List</h2>
         <p>Lorem ipsum dolor sit amet.</p>
@@ -41,11 +46,24 @@
                 <tr>
                     <th>id</th>
                     <th>name</th>
+                    <th>address</th>
                     <th>operate</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                @foreach ($data as $item)
+                    <tr>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->mobile }}</td>
+                        <td>{{ $item->address }}</td>
+                        <td>
+                            <a href="{{ route('cats.edit', ['cat' => $item->id]) }}">Edit</a> &nbsp;&nbsp;&nbsp;
+                            <a href="http://">Del</a>
+                        </td>
+                    </tr>
+                @endforeach
+                {{-- <tr>
                     <td>1</td>
                     <td>Amy</td>
                     <td>
@@ -53,30 +71,7 @@
                         <a href="http://">Del</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Amy</td>
-                    <td>
-                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
-                        <a href="http://">Del</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Amy</td>
-                    <td>
-                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
-                        <a href="http://">Del</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Amy</td>
-                    <td>
-                        <a href="http://">Edit</a> &nbsp;&nbsp;&nbsp;
-                        <a href="http://">Del</a>
-                    </td>
-                </tr>
+             --}}
             </tbody>
         </table>
     </div>

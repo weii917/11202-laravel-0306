@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
+
 class CatController extends Controller
 {
     /**
@@ -14,8 +17,17 @@ class CatController extends Controller
         // 確認edit路徑使用
         $url = route('cats.edit', ['cat' => 1]);
         // dd($url);
+        //撈出的資料存$data['']，return view 將此data帶進去
+        $data['cats'] = DB::select('select * from cats');
+        $data['test'] = '123';
 
-        return view('cat.index');
+        // 新增進資料庫 insert
+        // DB::table('cats')->insert([
+        //     'name' => 'amy',
+        //     'mobile' => '091134',
+        //     'address' => '1'
+        // ]);
+        return view('cat.index', ['data' => $data]);
         // $data = view('cat.index');
         // $data = route('cats.index');
         // dd($data);
@@ -39,8 +51,18 @@ class CatController extends Controller
     {
         //
         $input = $request->except('_token');
-        dd($input);
-        dd('hello cat store');
+        $now = now();
+        // dd($input);
+        // dd('hello cat store');
+        // 新增進資料庫 insert
+        DB::table('cats')->insert([
+            'name' => $input['name'],
+            'mobile' => $input['mobile'],
+            'address' => $input['address'],
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        return redirect()->route('cats.index');
     }
 
     /**
@@ -57,7 +79,7 @@ class CatController extends Controller
     public function edit(string $id)
     {
         //
-        dd($id);
+        dd("Hello $id");
     }
 
     /**

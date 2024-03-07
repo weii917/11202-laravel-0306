@@ -32,10 +32,10 @@ Route::resource('cats', CatController::class);
 Route::get('cats_excel', [CatController::class, 'excel'])->name('cats.excel');
 
 // 已製作views/layouts，測試進到child顯示什麼
-Route::get('/', function () {
-    // 1.預設進到child
-    return view('child');
+// Route::get('/', function () {
+//     1.預設進到child
+//     return view('child');
 
-    // 2.redirect 設定直接進哪個頁面
-    // return redirect('/cats');
-});
+//     2.redirect 設定直接進哪個頁面
+//     return redirect('/cats');
+// });
